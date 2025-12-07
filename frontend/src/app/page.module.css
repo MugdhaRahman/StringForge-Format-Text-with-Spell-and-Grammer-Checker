@@ -17,6 +17,7 @@
   background-color: var(--background);
 }
 
+
 .main {
   display: flex;
   min-height: 100dvh;
