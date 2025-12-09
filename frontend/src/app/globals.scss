@@ -1,35 +1,29 @@
 :root {
-  --bg: #0f172a;
+  --primary: #280137;
+  --primary-bg: #0f172a;
   --card: #111827;
   --accent: #22d3ee;
-  --text: #e5e7eb;
+  --primary-text: #e5e7eb;
   --muted: #94a3b8;
   --danger: #f87171;
+
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  background: radial-gradient(circle at 20% 20%, #1e293b, #0f172a);
-  color: var(--text);
+  min-height: 100dvh;
+  overflow: hidden;
+  background: url("/bg_main.jpg") center / cover fixed;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 a {
   color: inherit;
   text-decoration: none;
 }
-
-.app {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 32px 20px 48px;
-  display: grid;
-  gap: 16px;
+.page-container {
+  padding: 40px 60px;
 }
 
 .card {
@@ -37,24 +31,8 @@ a {
   border: 1px solid #1f2937;
   border-radius: 12px;
   padding: 16px;
+  margin: 0 20px 20px 20px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-}
-
-.btn {
-  background: linear-gradient(135deg, #22d3ee, #0ea5e9);
-  color: #0b1120;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 700;
-  transition: transform 0.1s ease, box-shadow 0.2s ease;
-  box-shadow: 0 6px 18px rgba(34, 211, 238, 0.35);
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 26px rgba(34, 211, 238, 0.45);
 }
 
 .input {
@@ -67,19 +45,6 @@ a {
   margin-bottom: 8px;
 }
 
-.habit-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px solid #1f2937;
-}
-
-.habit-row:last-child {
-  border-bottom: none;
-}
-
 .tag {
   padding: 6px 10px;
   border-radius: 999px;
@@ -88,13 +53,11 @@ a {
   font-weight: 700;
   font-size: 12px;
 }
-
 .flex {
   display: flex;
   gap: 8px;
   align-items: center;
 }
-
 .grid {
   display: grid;
   gap: 12px;
@@ -104,18 +67,9 @@ a {
   width: 100%;
   border-collapse: collapse;
 }
-
 .table th,
 .table td {
   padding: 10px 8px;
   text-align: left;
   border-bottom: 1px solid #1f2937;
-}
-
-.pill {
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--muted);
-  font-size: 12px;
 }
