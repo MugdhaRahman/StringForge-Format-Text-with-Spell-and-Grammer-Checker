@@ -1,6 +1,7 @@
 import React from "react";
 import type { Endpoint } from "@/lib/api";
-import { Button } from "@shohojdhara/atomix";
+import { Button, Input, Textarea } from "@shohojdhara/atomix";
+import { AtomixGlass } from "@shohojdhara/atomix";
 
 type Props = {
   text: string;
@@ -18,35 +19,71 @@ export function TransformForm({
   loading,
 }: Props) {
   return (
-    <div className="card grid">
-      <textarea
-        className="input"
-        style={{ minHeight: 140, resize: "vertical" }}
-        placeholder="Paste or type text here..."
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
-
-      <div
-        className="flex"
-        style={{
-          justifyContent:'space-between'
-        }}
+    <div
+      style={{
+        padding: 20,
+      }}
+    >
+      <AtomixGlass
+        displacementScale={300}
+        blurAmount={2.5}
+        cornerRadius={24}
+        mode="shader"
+        shaderVariant="premiumGlass"
+        enableLiquidBlur={true}
+        enableOverLightLayers={true}
+        enableBorderEffect={true}
+        elasticity={0.05}
       >
-        {actions.map((action) => (
-          <Button
-            variant="primary"
-            glass
-            style={{ backgroundColor: "var(--primary)" }}
-            key={action.key}
-            onClick={() => onRun(action.key)}
-            disabled={loading !== null}
-            title={action.description}
+        <div className="card grid">
+          <div 
+          style={{
+            marginTop:20
+          }}>
+            <Textarea
+              style={{
+                minHeight: 145,
+                resize: "vertical",
+                color: "white",
+                backgroundColor: "transparent",
+                border: "0px",
+                boxShadow: "none",
+              }}
+              placeholder="Paste or type text here..."
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              required
+              glass={{ 
+                elasticity: 0,
+              }}
+            
+            />
+          </div>
+
+          <div
+            className="flex"
+            style={{
+              justifyContent: "space-between",
+              marginTop: 20,
+              marginBottom: 10,
+            }}
           >
-            {loading === action.key ? "Working..." : action.label}
-          </Button>
-        ))}
-      </div>
+            {actions.map((action) => (
+              <Button
+                variant="primary"
+                glass
+                style={{ backgroundColor: "var(--primary)" }}
+                key={action.key}
+                onClick={() => onRun(action.key)}
+                disabled={loading !== null}
+                title={action.description}
+              >
+                {loading === action.key ? "Working..." : action.label}
+              </Button>
+            ))}
+          </div>
+        </div>
+      </AtomixGlass>
     </div>
   );
 }

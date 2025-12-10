@@ -20,7 +20,11 @@ const actions: { key: Endpoint; label: string; description: string }[] = [
   { key: "camel", label: "Camel Case", description: "Convert to camelCase" },
   { key: "snake", label: "Snake Case", description: "Convert to snake_case" },
   { key: "title", label: "Title Case", description: "Capitalize each word" },
-  { key: "spell", label: "Spell Check", description: "Auto-correct spelling" },
+  {
+    key: "spell",
+    label: "Spell Correction",
+    description: "Auto-correct spelling",
+  },
 ];
 
 export default function Home() {
@@ -58,11 +62,15 @@ export default function Home() {
     <>
       <div className="page-container">
         <AtomixGlass
-          displacementScale={150}
+          displacementScale={300}
           blurAmount={1}
           cornerRadius={30}
           mode="shader"
           shaderVariant="premiumGlass"
+          enableLiquidBlur={true}
+          enableOverLightLayers={true}
+          enableBorderEffect={true}
+          elasticity={0}
           style={{
             marginLeft: "auto",
             marginRight: "auto",
@@ -82,7 +90,13 @@ export default function Home() {
               }}
             >
               <div>
-                <h2>Text Cleaner & Formatter</h2>
+                <h2
+                  style={{
+                    color: "white",
+                  }}
+                >
+                  Text Cleaner & Formatter
+                </h2>
                 <p style={{ color: "var(--muted)", marginTop: 4 }}>
                   Clean, slugify, reformat, and spell-check.
                 </p>
